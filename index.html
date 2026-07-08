@@ -1,0 +1,2089 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- ==========================================
+                    BASIC META
+    =========================================== -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- ==========================================
+                    SEO
+    =========================================== -->
+        <title>Miracle | Portfolio</title>
+
+        <meta
+            name="description"
+            content="Personal Portfolio of Miracle - Informatics Student, Software Engineering Enthusiast and AI Learner."
+        />
+
+        <meta
+            name="keywords"
+            content="Portfolio, HTML, CSS, JavaScript, Software Engineer, AI, Informatics Student"
+        />
+
+        <meta name="author" content="Miracle" />
+
+        <!-- ==========================================
+                    FAVICON
+    =========================================== -->
+        <link rel="icon" href="assets/favicon.ico" />
+
+        <!-- ==========================================
+                    FONT
+    =========================================== -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- ==========================================
+                    CSS
+    =========================================== -->
+        <link rel="stylesheet" href="style.css" />
+        <style>
+            /* ==========================================
+                RESET
+========================================== */
+
+            *,
+            *::before,
+            *::after {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family: "Inter", sans-serif;
+                background: #f5f5f7;
+                color: #1d1d1f;
+                line-height: 1.7;
+                overflow-x: hidden;
+            }
+
+            img {
+                width: 100%;
+                display: block;
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            ul {
+                list-style: none;
+            }
+
+            button {
+                border: none;
+                background: none;
+                cursor: pointer;
+                font-family: inherit;
+            }
+
+            /* ==========================================
+                VARIABLES
+========================================== */
+
+            :root {
+                --bg: #f5f5f7;
+
+                --surface: #ffffff;
+
+                --primary: #1d1d1f;
+
+                --secondary: #6e6e73;
+
+                --border: #d2d2d7;
+
+                --accent: #0071e3;
+
+                --radius: 18px;
+
+                --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+                --transition: 0.3s ease;
+
+                --max-width: 1120px;
+            }
+
+            /* ==========================================
+                GLOBAL
+========================================== */
+
+            section {
+                padding: 120px 0;
+            }
+
+            .container {
+                width: min(92%, var(--max-width));
+
+                margin: auto;
+            }
+
+            .section-heading {
+                text-align: center;
+
+                margin-bottom: 70px;
+            }
+
+            .section-heading p {
+                color: var(--accent);
+
+                font-size: 0.9rem;
+
+                font-weight: 700;
+
+                letter-spacing: 2px;
+
+                text-transform: uppercase;
+
+                margin-bottom: 12px;
+            }
+
+            .section-heading h2 {
+                font-size: clamp(2rem, 5vw, 3rem);
+
+                font-weight: 700;
+            }
+
+            p {
+                color: var(--secondary);
+            }
+
+            h1,
+            h2,
+            h3 {
+                color: var(--primary);
+
+                line-height: 1.2;
+            }
+
+            .primary-button,
+            .secondary-button {
+                display: inline-flex;
+
+                align-items: center;
+
+                justify-content: center;
+
+                padding: 14px 26px;
+
+                border-radius: 999px;
+
+                transition: var(--transition);
+
+                font-weight: 600;
+            }
+
+            .primary-button {
+                background: var(--accent);
+
+                color: #fff;
+            }
+
+            .primary-button:hover {
+                transform: translateY(-3px);
+
+                box-shadow: var(--shadow);
+            }
+
+            .secondary-button {
+                border: 1px solid var(--border);
+
+                background: #fff;
+            }
+
+            .secondary-button:hover {
+                transform: translateY(-3px);
+
+                box-shadow: var(--shadow);
+            }
+
+            /* ==========================================
+                HEADER
+========================================== */
+
+            .header {
+                position: fixed;
+
+                top: 18px;
+
+                left: 50%;
+
+                transform: translateX(-50%);
+
+                width: min(96%, 1120px);
+
+                z-index: 999;
+
+                background: rgba(255, 255, 255, 0.65);
+
+                backdrop-filter: blur(18px);
+
+                -webkit-backdrop-filter: blur(18px);
+
+                border: 1px solid rgba(255, 255, 255, 0.6);
+
+                border-radius: 999px;
+
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+
+                transition: var(--transition);
+            }
+
+            .header .container {
+                display: flex;
+
+                justify-content: space-between;
+
+                align-items: center;
+
+                padding: 16px 28px;
+            }
+
+            .logo {
+                font-size: 1.15rem;
+
+                font-weight: 700;
+            }
+
+            .nav-list {
+                display: flex;
+
+                gap: 36px;
+            }
+
+            .nav-list a {
+                position: relative;
+
+                font-weight: 500;
+
+                color: var(--secondary);
+
+                transition: var(--transition);
+            }
+
+            .nav-list a:hover {
+                color: var(--primary);
+            }
+
+            .nav-list a::after {
+                content: "";
+
+                position: absolute;
+
+                left: 0;
+
+                bottom: -6px;
+
+                width: 0;
+
+                height: 2px;
+
+                background: var(--accent);
+
+                transition: 0.3s;
+            }
+
+            .nav-list a:hover::after {
+                width: 100%;
+            }
+
+            .menu-button {
+                display: none;
+
+                font-size: 1.7rem;
+            }
+            /* ==========================================
+                HERO
+========================================== */
+
+            .hero {
+                min-height: 100vh;
+
+                display: flex;
+
+                align-items: center;
+
+                padding-top: 160px;
+            }
+
+            .hero-container {
+                display: grid;
+
+                grid-template-columns: 1.2fr 0.8fr;
+
+                align-items: center;
+
+                gap: 80px;
+            }
+
+            .hero-tag {
+                color: var(--accent);
+
+                font-weight: 700;
+
+                letter-spacing: 2px;
+
+                margin-bottom: 20px;
+
+                text-transform: uppercase;
+            }
+
+            .hero-title {
+                font-size: clamp(3rem, 7vw, 5rem);
+
+                margin-bottom: 24px;
+
+                line-height: 1.05;
+            }
+
+            .hero-title span {
+                color: var(--accent);
+            }
+
+            .hero-description {
+                max-width: 600px;
+
+                font-size: 1.1rem;
+
+                margin-bottom: 40px;
+            }
+
+            .hero-buttons {
+                display: flex;
+
+                gap: 18px;
+
+                flex-wrap: wrap;
+            }
+
+            .hero-image {
+                display: flex;
+
+                justify-content: center;
+            }
+
+            .hero-image img {
+                width: 360px;
+
+                height: 360px;
+
+                object-fit: cover;
+
+                border-radius: 50%;
+
+                background: #fff;
+
+                border: 10px solid rgba(255, 255, 255, 0.7);
+
+                box-shadow: var(--shadow);
+
+                transition: var(--transition);
+            }
+
+            .hero-image img:hover {
+                transform: translateY(-6px);
+            }
+
+            /* ==========================================
+                ABOUT
+========================================== */
+
+            .about {
+                background: #fff;
+            }
+
+            .about-content {
+                max-width: 850px;
+
+                margin: auto;
+
+                text-align: center;
+            }
+
+            .about-content p {
+                font-size: 1.1rem;
+
+                line-height: 2;
+            }
+
+            .about-content strong {
+                color: var(--primary);
+            }
+
+            /* ==========================================
+                SKILLS
+========================================== */
+
+            .skills {
+                background: var(--bg);
+            }
+
+            .skills-group {
+                margin-bottom: 60px;
+            }
+
+            .skills-group h3 {
+                margin-bottom: 24px;
+
+                font-size: 1.35rem;
+            }
+
+            .skills-grid {
+                display: flex;
+
+                flex-wrap: wrap;
+
+                gap: 18px;
+            }
+
+            .skill-chip {
+                background: #fff;
+
+                border: 1px solid var(--border);
+
+                padding: 14px 22px;
+
+                border-radius: 999px;
+
+                font-weight: 600;
+
+                transition: var(--transition);
+
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+            }
+
+            .skill-chip:hover {
+                transform: translateY(-5px);
+
+                color: var(--accent);
+
+                box-shadow: var(--shadow);
+            }
+            /* ==========================================
+                PROJECTS
+========================================== */
+
+            .projects {
+                background: #ffffff;
+            }
+
+            .featured-project {
+                display: grid;
+
+                grid-template-columns: 1fr 1fr;
+
+                gap: 60px;
+
+                align-items: center;
+
+                background: #ffffff;
+
+                border: 1px solid var(--border);
+
+                border-radius: 28px;
+
+                padding: 40px;
+
+                box-shadow: var(--shadow);
+
+                margin-bottom: 70px;
+            }
+
+            .project-image {
+                overflow: hidden;
+
+                border-radius: 20px;
+            }
+
+            .project-image img {
+                aspect-ratio: 16/10;
+
+                object-fit: cover;
+
+                transition: 0.45s ease;
+            }
+
+            .project-image img:hover {
+                transform: scale(1.03);
+            }
+
+            .project-label {
+                display: inline-block;
+
+                padding: 8px 14px;
+
+                background: #e8f2ff;
+
+                color: var(--accent);
+
+                border-radius: 999px;
+
+                font-size: 0.8rem;
+
+                font-weight: 700;
+
+                margin-bottom: 18px;
+            }
+
+            .project-content h3 {
+                font-size: 2rem;
+
+                margin-bottom: 18px;
+            }
+
+            .project-content p {
+                margin-bottom: 28px;
+            }
+
+            .project-tech {
+                display: flex;
+
+                flex-wrap: wrap;
+
+                gap: 12px;
+
+                margin-bottom: 30px;
+            }
+
+            .project-tech span {
+                background: #f5f5f7;
+
+                border: 1px solid var(--border);
+
+                padding: 10px 18px;
+
+                border-radius: 999px;
+
+                font-size: 0.9rem;
+
+                font-weight: 600;
+            }
+
+            .project-links {
+                display: flex;
+
+                gap: 18px;
+            }
+
+            .project-links a {
+                color: var(--accent);
+
+                font-weight: 600;
+
+                transition: var(--transition);
+            }
+
+            .project-links a:hover {
+                transform: translateX(6px);
+            }
+
+            .projects-grid {
+                display: grid;
+
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+                gap: 28px;
+            }
+
+            .project-card {
+                background: #ffffff;
+
+                border: 1px solid var(--border);
+
+                border-radius: 24px;
+
+                padding: 30px;
+
+                transition: var(--transition);
+
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+            }
+
+            .project-card:hover {
+                transform: translateY(-8px);
+
+                box-shadow: var(--shadow);
+            }
+
+            .project-card h3 {
+                margin-bottom: 16px;
+            }
+
+            /* ==========================================
+            CERTIFICATIONS
+========================================== */
+
+            .certifications {
+                background: var(--bg);
+            }
+
+            .certificate-grid {
+                display: grid;
+
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+                gap: 30px;
+            }
+
+            .certificate-card {
+                background: #ffffff;
+
+                border: 1px solid var(--border);
+
+                border-radius: 24px;
+
+                padding: 32px;
+
+                transition: var(--transition);
+
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+            }
+
+            .certificate-card:hover {
+                transform: translateY(-8px);
+
+                box-shadow: var(--shadow);
+            }
+
+            .certificate-card h3 {
+                margin-bottom: 14px;
+            }
+
+            .certificate-card p {
+                margin-bottom: 24px;
+            }
+
+            .certificate-card a {
+                color: var(--accent);
+
+                font-weight: 600;
+            }
+
+            /* ==========================================
+                CONTACT
+========================================== */
+
+            .contact {
+                background: #ffffff;
+            }
+
+            .contact-grid {
+                display: grid;
+
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+                gap: 24px;
+            }
+
+            .contact-card {
+                display: flex;
+
+                justify-content: center;
+
+                align-items: center;
+
+                min-height: 120px;
+
+                background: #ffffff;
+
+                border: 1px solid var(--border);
+
+                border-radius: 22px;
+
+                font-weight: 600;
+
+                transition: var(--transition);
+
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+            }
+
+            .contact-card:hover {
+                transform: translateY(-8px);
+
+                color: var(--accent);
+
+                box-shadow: var(--shadow);
+            }
+            /* ==========================================
+                FOOTER
+========================================== */
+
+            .footer {
+                background: #f5f5f7;
+
+                border-top: 1px solid var(--border);
+
+                padding: 50px 0;
+            }
+
+            .footer p {
+                text-align: center;
+
+                font-size: 0.95rem;
+
+                color: var(--secondary);
+            }
+
+            /* ==========================================
+                UTILITIES
+========================================== */
+
+            .text-center {
+                text-align: center;
+            }
+
+            .hidden {
+                display: none;
+            }
+
+            .rounded {
+                border-radius: var(--radius);
+            }
+
+            .shadow {
+                box-shadow: var(--shadow);
+            }
+
+            /* ==========================================
+                SCROLL REVEAL
+========================================== */
+
+            .reveal {
+                opacity: 0;
+
+                transform: translateY(50px);
+
+                transition:
+                    opacity 0.8s ease,
+                    transform 0.8s ease;
+            }
+
+            .reveal.show {
+                opacity: 1;
+
+                transform: translateY(0);
+            }
+
+            /* ==========================================
+                BACK TO TOP
+========================================== */
+
+            .back-to-top {
+                position: fixed;
+
+                right: 30px;
+
+                bottom: 30px;
+
+                width: 52px;
+
+                height: 52px;
+
+                display: flex;
+
+                justify-content: center;
+
+                align-items: center;
+
+                border-radius: 50%;
+
+                background: var(--accent);
+
+                color: #fff;
+
+                box-shadow: var(--shadow);
+
+                cursor: pointer;
+
+                opacity: 0;
+
+                visibility: hidden;
+
+                transition: var(--transition);
+
+                z-index: 998;
+            }
+
+            .back-to-top.show {
+                opacity: 1;
+
+                visibility: visible;
+            }
+
+            .back-to-top:hover {
+                transform: translateY(-5px);
+            }
+
+            /* ==========================================
+                SMOOTH HOVER
+========================================== */
+
+            .project-card,
+            .certificate-card,
+            .contact-card,
+            .skill-chip,
+            .primary-button,
+            .secondary-button {
+                transition:
+                    transform 0.3s ease,
+                    box-shadow 0.3s ease,
+                    color 0.3s ease,
+                    background 0.3s ease;
+            }
+
+            /* ==========================================
+                SELECTION
+========================================== */
+
+            ::selection {
+                background: var(--accent);
+
+                color: #fff;
+            }
+
+            /* ==========================================
+                SCROLLBAR
+========================================== */
+
+            ::-webkit-scrollbar {
+                width: 10px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: #ececec;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: #b8b8bd;
+
+                border-radius: 999px;
+            }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #8d8d92;
+            }
+            /* ==========================================
+            RESPONSIVE - LAPTOP
+========================================== */
+
+            @media (max-width: 1100px) {
+                .hero-container {
+                    gap: 50px;
+                }
+
+                .featured-project {
+                    gap: 40px;
+                }
+            }
+
+            /* ==========================================
+            RESPONSIVE - TABLET
+========================================== */
+
+            @media (max-width: 900px) {
+                section {
+                    padding: 90px 0;
+                }
+
+                .hero {
+                    padding-top: 140px;
+                }
+
+                .hero-container {
+                    grid-template-columns: 1fr;
+
+                    text-align: center;
+                }
+
+                .hero-description {
+                    margin-inline: auto;
+                }
+
+                .hero-buttons {
+                    justify-content: center;
+                }
+
+                .hero-image {
+                    order: -1;
+                }
+
+                .hero-image img {
+                    width: 280px;
+
+                    height: 280px;
+                }
+
+                .featured-project {
+                    grid-template-columns: 1fr;
+
+                    padding: 30px;
+                }
+
+                .project-content {
+                    text-align: center;
+                }
+
+                .project-tech {
+                    justify-content: center;
+                }
+
+                .project-links {
+                    justify-content: center;
+                }
+            }
+
+            /* ==========================================
+            RESPONSIVE - MOBILE
+========================================== */
+
+            @media (max-width: 768px) {
+                .header {
+                    top: 10px;
+
+                    width: 95%;
+                }
+
+                .header .container {
+                    padding: 14px 20px;
+                }
+
+                .menu-button {
+                    display: block;
+                }
+
+                .navbar {
+                    position: absolute;
+
+                    top: 85px;
+
+                    left: 0;
+
+                    width: 100%;
+
+                    background: rgba(255, 255, 255, 0.96);
+
+                    backdrop-filter: blur(20px);
+
+                    border-radius: 22px;
+
+                    padding: 20px;
+
+                    box-shadow: var(--shadow);
+
+                    display: none;
+                }
+
+                .navbar.active {
+                    display: block;
+                }
+
+                .nav-list {
+                    flex-direction: column;
+
+                    gap: 20px;
+
+                    text-align: center;
+                }
+
+                .hero-title {
+                    font-size: 2.8rem;
+                }
+
+                .hero-description {
+                    font-size: 1rem;
+                }
+
+                .hero-image img {
+                    width: 230px;
+
+                    height: 230px;
+                }
+
+                .skills-grid {
+                    justify-content: center;
+                }
+
+                .project-card,
+                .certificate-card,
+                .contact-card {
+                    padding: 24px;
+                }
+
+                .contact-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            /* ==========================================
+            SMALL MOBILE
+========================================== */
+
+            @media (max-width: 480px) {
+                section {
+                    padding: 75px 0;
+                }
+
+                .hero {
+                    min-height: auto;
+
+                    padding-top: 130px;
+                }
+
+                .hero-title {
+                    font-size: 2.3rem;
+                }
+
+                .hero-buttons {
+                    flex-direction: column;
+
+                    width: 100%;
+                }
+
+                .primary-button,
+                .secondary-button {
+                    width: 100%;
+                }
+
+                .hero-image img {
+                    width: 190px;
+
+                    height: 190px;
+                }
+
+                .section-heading {
+                    margin-bottom: 50px;
+                }
+
+                .section-heading h2 {
+                    font-size: 2rem;
+                }
+
+                .project-tech {
+                    gap: 10px;
+                }
+
+                .project-tech span {
+                    font-size: 0.8rem;
+                }
+
+                .back-to-top {
+                    right: 18px;
+
+                    bottom: 18px;
+
+                    width: 46px;
+
+                    height: 46px;
+                }
+            }
+
+            /* ==========================================
+            FINAL POLISH
+========================================== */
+
+            html {
+                scroll-padding-top: 110px;
+            }
+
+            body.loading {
+                overflow: hidden;
+            }
+
+            .container {
+                animation: fadeUp 0.8s ease;
+            }
+
+            @keyframes fadeUp {
+                from {
+                    opacity: 0;
+
+                    transform: translateY(20px);
+                }
+
+                to {
+                    opacity: 1;
+
+                    transform: translateY(0);
+                }
+            }
+
+            .hero-image img,
+            .project-image img,
+            .project-card,
+            .certificate-card,
+            .contact-card {
+                will-change: transform;
+            }
+            .nav-list a.active {
+                color: var(--accent);
+            }
+
+            .nav-list a.active::after {
+                width: 100%;
+            }
+            /* ==========================================
+            RIPPLE EFFECT
+========================================== */
+
+            .primary-button,
+            .secondary-button {
+                position: relative;
+
+                overflow: hidden;
+            }
+
+            .ripple {
+                position: absolute;
+
+                width: 12px;
+
+                height: 12px;
+
+                background: rgba(255, 255, 255, 0.4);
+
+                border-radius: 50%;
+
+                transform: translate(-50%, -50%);
+
+                animation: ripple 0.6s linear;
+            }
+
+            @keyframes ripple {
+                from {
+                    width: 0;
+
+                    height: 0;
+
+                    opacity: 0.8;
+                }
+
+                to {
+                    width: 450px;
+
+                    height: 450px;
+
+                    opacity: 0;
+                }
+            }
+
+            /* ==========================================
+            SCROLL PROGRESS
+========================================== */
+
+            .progress-bar {
+                position: fixed;
+
+                top: 0;
+
+                left: 0;
+
+                height: 3px;
+
+                width: 0;
+
+                background: var(--accent);
+
+                z-index: 9999;
+
+                transition: width 0.1s linear;
+            }
+            /* ==========================================
+        CERTIFICATE MODAL
+========================================== */
+
+.certificate-image{
+
+    width:100%;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.certificate-image:hover{
+
+    transform:scale(1.02);
+
+}
+
+.certificate-modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.72);
+
+    backdrop-filter:blur(8px);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.35s;
+
+    z-index:9999;
+
+}
+
+.certificate-modal.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+.modal-image{
+
+    width:min(90%,900px);
+
+    max-height:90vh;
+
+    border-radius:18px;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+
+    transform:scale(.85);
+
+    transition:.35s;
+
+}
+
+.certificate-modal.show .modal-image{
+
+    transform:scale(1);
+
+}
+        </style>
+    </head>
+
+    <body>
+        <!-- ==========================================
+                    HEADER
+    =========================================== -->
+
+        <header class="header">
+            <div class="container">
+                <a href="#home" class="logo"> Personal Portofolio </a>
+
+                <nav class="navbar">
+                    <ul class="nav-list">
+                        <li><a href="#home">Home</a></li>
+
+                        <li><a href="#about">About</a></li>
+
+                        <li><a href="#skills">Skills</a></li>
+
+                        <li><a href="#projects">Projects</a></li>
+
+                        <li><a href="#certifications">Certificates</a></li>
+
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <button class="menu-button">☰</button>
+            </div>
+        </header>
+
+        <!-- ==========================================
+                    MAIN
+    =========================================== -->
+
+        <main>
+            <!-- ======================================
+                    HERO
+        ======================================= -->
+
+            <section id="home" class="hero reveal">
+                <div class="container hero-container">
+                    <div class="hero-content">
+                        <p class="hero-tag">HELLO THERE 👋</p>
+
+                        <h1 class="hero-title">
+                            Hi, I'm
+                            <span> MIRACLE MATTHEW MANDEY </span>
+                        </h1>
+
+                        <p class="hero-description">
+                            <!-- TODO:
+                        Replace with your own introduction -->
+
+Informatics engineering students who like technology and innovation around technology and like to try to make innovations that they have never thought of, whether the innovation will exist or not, and try Make it happen
+                        </p>
+
+                        <div class="hero-buttons">
+                            <a href="#projects" class="primary-button">
+                                View Projects
+                            </a>
+
+                            <a href="#contact" class="secondary-button">
+                                Contact Me
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="hero-image">
+                        <!-- TODO:
+                    Replace profile image -->
+
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================================
+                    ABOUT
+        ======================================= -->
+
+            <section id="about" class="about reveal">
+                <div class="container">
+                    <div class="section-heading">
+                        <p>ABOUT</p>
+
+                        <h2>Get to know me.</h2>
+                    </div>
+
+                    <div class="about-content">
+                        <p>
+                            <!-- TODO:
+                        Replace with your own story -->
+
+Hello everyone, I am an informatics engineering student who is currently pursuing an applied bachelor's degree at one of the state polytechnics in Indonesia.
+Let me introduce myself, my name is MIRACLE MATTHEW MANDEY, and I really like technology and innovation in the technology field and of course I really like developing crazy ideas that are in my mind for Becoming real even though it's not easy of course
+Apart from the ICT field, I also like mathematics and problem solving and of course playing Rubik's cube. 
+I have made several mini projects, and I have also collected many certificates from courses, both national and international, and I have attended many seminars in the IT field. When I was still in high school 
+Want to know more about me? Want to know what projects and achievements I've been involved in? HAPPY EXPLORING 
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <!-- ======================================
+                    SKILLS
+        ======================================= -->
+
+            <section id="skills" class="skills reveal">
+                <div class="container">
+                    <div class="section-heading">
+                        <p>SKILLS</p>
+
+                        <h2>Tools & Technologies.</h2>
+                    </div>
+
+                    <div class="skills-group">
+                        <h3>Languages</h3>
+
+                        <div class="skills-grid">
+                            <span class="skill-chip">HTML</span>
+                            <span class="skill-chip">CSS</span>
+                            <span class="skill-chip">JavaScript</span>
+                            <span class="skill-chip">Python</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-group">
+                        <h3>Tools</h3>
+
+                        <div class="skills-grid">
+                            <span class="skill-chip">Acode</span>
+                            <span class="skill-chip">Termux</span>
+                            <span class="skill-chip">Github</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-group">
+                        <h3>Currently Learning</h3>
+
+                        <div class="skills-grid">
+                            <span class="skill-chip">Frontend developer</span>
+                            <span class="skill-chip"
+                                >Artificial Intelligence</span
+                            >
+                            <span class="skill-chip">UI / UX</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================================
+                    PROJECTS
+        ======================================= -->
+
+            <section id="projects" class="projects reveal">
+                <div class="container">
+                    <div class="section-heading">
+                        <p>PROJECTS</p>
+
+                        <h2>Featured Work.</h2>
+                    </div>
+
+                    <!-- Featured Project -->
+
+                    <article class="featured-project">
+                        <div class="project-image">
+                            <!-- TODO: Replace with Study Apps Screenshot -->
+
+                            <img
+                                src="STARLIGHT.jpg"
+                                alt="Study Apps"
+                            />
+                        </div>
+
+                        <div class="project-content">
+                            <span class="project-label">
+                                Featured Project
+                            </span>
+
+                            <h3>STARLIGHTs</h3>
+
+                            <p>
+                                <!-- TODO -->
+
+                                A web application created to help students
+                                access learning materials quickly during a
+                                temporary academic program.
+                            </p>
+
+                            <div class="project-tech">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                            </div>
+
+                            <div
+                                class="https://matthewmandey.github.io/Starlight-/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPNTY3MDY3MzQzMzUyNDI3AAGnq4HdkB7oeJyORsfmbuvY85eAZRjvZXkpBQwvjHK7t_RT4XLOJY_tfuEDt9k_aem_xWHWuR-yGbOs_oleo55nIg"
+                            >
+                                <a
+                                    href="https://matthewmandey.github.io/Starlight-/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPNTY3MDY3MzQzMzUyNDI3AAGnq4HdkB7oeJyORsfmbuvY85eAZRjvZXkpBQwvjHK7t_RT4XLOJY_tfuEDt9k_aem_xWHWuR-yGbOs_oleo55nIg"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="primary-button"
+                                >
+                                    Live Demo
+                                </a>
+
+                    </article>
+
+                    <!-- Other Projects -->
+
+                        <article class="project-card">
+                            <h3>Upcoming Project</h3>
+
+                            <p>I am developing a Rubik's course website for both absolute beginners and experts, even those who want to try new types of Rubik's, with tutorials, methods and algorithms Which is appropriate and easy to understood </p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================================
+                CERTIFICATIONS
+        ======================================= -->
+
+<article class="certificate-card">
+                  <div class="container">
+                    <div class="section-heading">
+                        <p>CERTIFICATES</p>
+
+                        <h2>Achievements.</h2>
+                    </div>
+
+    <img
+        src="CODE.ORG.jpg"
+        alt="Code.org Certificate"
+        class="certificate-image">
+
+    <div class="certificate-content">
+
+        <h3>AI Fundamentals</h3>
+
+        <p>HOUR OF AI by CODE.org</p>
+
+    </div>
+
+</article>
+
+<article class="certificate-card">
+
+    <img
+        src="HOA.jpg"
+        alt="Code.org Certificate"
+        class="certificate-image">
+
+    <div class="certificate-content">
+
+        <h3>AI Fundamentals</h3>
+
+        <p>HOUR OF AI - Mix & Move with AI by CODE.org</p>
+
+    </div>
+
+</article>
+<article class="certificate-card">
+
+    <img
+        src="HOC.jpg"
+        alt="Google AI Certificate"
+        class="certificate-image">
+
+    <div class="certificate-content">
+
+        <h3>CODING Fundamentals</h3>
+
+        <p>HOUR OF CODE - Music labs Jam session by CODE.org</p>
+
+    </div>
+
+</article>
+
+            <!-- ======================================
+                    CONTACT
+        ======================================= -->
+
+            <section id="contact" class="contact reveal">
+                <div class="container">
+                    <div class="section-heading">
+                        <p>CONTACT</p>
+
+                        <h2>Let's Connect.</h2>
+                    </div>
+
+                    <div class="contact-grid">
+<a href="matthew29072009@gmail.com" class="contact-card">
+    Email
+</a>
+
+<a href="https://github.com/Matthewmandey?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcARcKyJleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAadPHOXtVdoP4P-v_uhOeeUxoqJd-SxZhMtr_IeopW-H2-xDr68nwADYjfv37A_aem_GQTNJGWW9a75tjBJspETpg"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="contact-card">
+
+    GitHub
+
+</a>
+
+
+
+<a href="https://www.instagram.com/matthew.mandey?igsh=aWJoeDVvbmJieWxs"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="contact-card">
+
+    Instagram
+
+</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- ======================================
+                    FOOTER
+    ======================================= -->
+
+        <footer class="footer">
+            <div class="container">
+                <p>
+                    © 2026 Miracle Matthew Mandey
+                </p>
+            </div>
+        </footer>
+
+        <!-- ======================================
+                    JAVASCRIPT
+    ======================================= -->
+        <script>
+            /* ==========================================
+            MOBILE NAVIGATION
+========================================== */
+
+            const menuButton = document.querySelector(".menu-button");
+            const navbar = document.querySelector(".navbar");
+
+            menuButton.addEventListener("click", () => {
+                navbar.classList.toggle("active");
+            });
+
+            /* ==========================================
+        CLOSE MENU AFTER CLICK
+========================================== */
+
+            const navLinks = document.querySelectorAll(".nav-list a");
+
+            navLinks.forEach(link => {
+                link.addEventListener("click", () => {
+                    navbar.classList.remove("active");
+                });
+            });
+
+            /* ==========================================
+        ACTIVE NAVIGATION LINK
+========================================== */
+
+            const sections = document.querySelectorAll("section");
+
+            window.addEventListener("scroll", () => {
+                let current = "";
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 150;
+
+                    const sectionHeight = section.clientHeight;
+
+                    if (pageYOffset >= sectionTop) {
+                        current = section.getAttribute("id");
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove("active");
+
+                    if (link.getAttribute("href") === "#" + current) {
+                        link.classList.add("active");
+                    }
+                });
+            });
+
+            /* ==========================================
+        NAVBAR SCROLL EFFECT
+========================================== */
+
+            const header = document.querySelector(".header");
+
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 50) {
+                    header.style.background = "rgba(255,255,255,.82)";
+
+                    header.style.boxShadow = "0 10px 30px rgba(0,0,0,.08)";
+                } else {
+                    header.style.background = "rgba(255,255,255,.65)";
+
+                    header.style.boxShadow = "0 8px 25px rgba(0,0,0,.05)";
+                }
+            });
+            /* ==========================================
+            SCROLL REVEAL
+========================================== */
+
+            const revealElements = document.querySelectorAll(".reveal");
+
+            const revealOnScroll = () => {
+                const triggerPoint = window.innerHeight * 0.85;
+
+                revealElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+
+                    if (elementTop < triggerPoint) {
+                        element.classList.add("show");
+                    }
+                });
+            };
+
+            window.addEventListener("scroll", revealOnScroll);
+
+            window.addEventListener("load", revealOnScroll);
+
+            /* ==========================================
+            BACK TO TOP BUTTON
+========================================== */
+
+            const backToTop = document.getElementById("backToTop");
+
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 400) {
+                    backToTop.classList.add("show");
+                } else {
+                    backToTop.classList.remove("show");
+                }
+            });
+
+            backToTop.addEventListener("click", () => {
+                window.scrollTo({
+                    top: 0,
+
+                    behavior: "smooth"
+                });
+            });
+
+            /* ==========================================
+            PAGE LOADING
+========================================== */
+
+            window.addEventListener("load", () => {
+                document.body.classList.remove("loading");
+            });
+
+            /* ==========================================
+        HERO IMAGE PARALLAX
+========================================== */
+
+            const heroImage = document.querySelector(".hero-image img");
+
+            window.addEventListener("scroll", () => {
+                const offset = window.scrollY * 0.08;
+
+                heroImage.style.transform = `translateY(${offset}px)`;
+            });
+            /* ==========================================
+        SMOOTH SECTION HIGHLIGHT
+========================================== */
+
+            const observerOptions = {
+                threshold: 0.45
+            };
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove("active");
+
+                            const target = link
+                                .getAttribute("href")
+                                .replace("#", "");
+
+                            if (target === entry.target.id) {
+                                link.classList.add("active");
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            /* ==========================================
+            BUTTON RIPPLE EFFECT
+========================================== */
+
+            const buttons = document.querySelectorAll(
+                ".primary-button, .secondary-button"
+            );
+
+            buttons.forEach(button => {
+                button.addEventListener("click", e => {
+                    const ripple = document.createElement("span");
+
+                    ripple.classList.add("ripple");
+
+                    const rect = button.getBoundingClientRect();
+
+                    ripple.style.left = `${e.clientX - rect.left}px`;
+
+                    ripple.style.top = `${e.clientY - rect.top}px`;
+
+                    button.appendChild(ripple);
+
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+
+            /* ==========================================
+            SCROLL PROGRESS BAR
+========================================== */
+
+            const progressBar = document.createElement("div");
+
+            progressBar.className = "progress-bar";
+
+            document.body.appendChild(progressBar);
+
+            window.addEventListener("scroll", () => {
+                const totalHeight =
+                    document.documentElement.scrollHeight - window.innerHeight;
+
+                const progress = (window.scrollY / totalHeight) * 100;
+
+                progressBar.style.width = progress + "%";
+            });
+
+            /* ==========================================
+        PROJECT CARD HOVER
+========================================== */
+
+            const cards = document.querySelectorAll(
+                ".project-card, .certificate-card, .contact-card"
+            );
+
+            cards.forEach(card => {
+                card.addEventListener("mouseenter", () => {
+                    card.style.transform = "translateY(-8px)";
+                });
+
+                card.addEventListener("mouseleave", () => {
+                    card.style.transform = "translateY(0)";
+                });
+            });
+            /* ==========================================
+        CLOSE MENU WHEN CLICK OUTSIDE
+========================================== */
+
+            document.addEventListener("click", event => {
+                const isMenu = navbar.contains(event.target);
+
+                const isButton = menuButton.contains(event.target);
+
+                if (!isMenu && !isButton) {
+                    navbar.classList.remove("active");
+                }
+            });
+
+            /* ==========================================
+        ESC KEY CLOSE MENU
+========================================== */
+
+            document.addEventListener("keydown", event => {
+                if (event.key === "Escape") {
+                    navbar.classList.remove("active");
+                }
+            });
+
+            /* ==========================================
+        HIDE / SHOW HEADER
+========================================== */
+
+            let lastScroll = 0;
+
+            window.addEventListener("scroll", () => {
+                const currentScroll = window.scrollY;
+
+                if (currentScroll <= 20) {
+                    header.style.transform = "translateX(-50%) translateY(0)";
+
+                    lastScroll = currentScroll;
+
+                    return;
+                }
+
+                if (currentScroll > lastScroll) {
+                    header.style.transform =
+                        "translateX(-50%) translateY(-120%)";
+                } else {
+                    header.style.transform = "translateX(-50%) translateY(0)";
+                }
+
+                lastScroll = currentScroll;
+            });
+
+            /* ==========================================
+        IMAGE LAZY FADE-IN
+========================================== */
+
+            const images = document.querySelectorAll("img");
+
+            const imageObserver = new IntersectionObserver(
+                entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = "1";
+
+                            entry.target.style.transform = "translateY(0)";
+
+                            imageObserver.unobserve(entry.target);
+                        }
+                    });
+                },
+                {
+                    threshold: 0.15
+                }
+            );
+
+            images.forEach(image => {
+                image.style.opacity = "0";
+
+                image.style.transform = "translateY(20px)";
+
+                image.style.transition = ".6s ease";
+
+                imageObserver.observe(image);
+            });
+
+            /* ==========================================
+        PERFORMANCE
+========================================== */
+
+            window.addEventListener("resize", () => {
+                if (window.innerWidth > 768) {
+                    navbar.classList.remove("active");
+                }
+            });
+            /* ==========================================
+        HERO TYPING EFFECT
+========================================== */
+
+            const heroTitle = document.querySelector(".hero-title span");
+
+            if (heroTitle) {
+                const words = [
+                    "Software Engineer",
+                    "AI Enthusiast",
+                    "Problem Solver",
+                    "Web Developer"
+                ];
+
+                let wordIndex = 0;
+                let charIndex = 0;
+                let deleting = false;
+
+                function typeEffect() {
+                    const currentWord = words[wordIndex];
+
+                    if (!deleting) {
+                        heroTitle.textContent = currentWord.substring(
+                            0,
+                            charIndex++
+                        );
+
+                        if (charIndex > currentWord.length) {
+                            deleting = true;
+
+                            setTimeout(typeEffect, 1200);
+
+                            return;
+                        }
+                    } else {
+                        heroTitle.textContent = currentWord.substring(
+                            0,
+                            charIndex--
+                        );
+
+                        if (charIndex < 0) {
+                            deleting = false;
+
+                            wordIndex++;
+
+                            if (wordIndex >= words.length) {
+                                wordIndex = 0;
+                            }
+                        }
+                    }
+
+                    setTimeout(typeEffect, deleting ? 60 : 120);
+                }
+
+                typeEffect();
+            }
+
+            /* ==========================================
+        PREVENT JS ERROR
+========================================== */
+
+            window.addEventListener("error", event => {
+                console.warn("Portfolio Warning:", event.message);
+            });
+
+            /* ==========================================
+        WELCOME MESSAGE
+========================================== */
+
+            console.log(
+                "%cWelcome 👋",
+                "font-size:24px;font-weight:bold;color:#0071E3;"
+            );
+
+            console.log(
+                "%cMiracle Portfolio v1.0",
+                "font-size:18px;color:#1D1D1F;"
+            );
+
+            console.log(
+                "%cDesigned with HTML, CSS & JavaScript",
+                "color:#6E6E73;"
+            );
+
+            console.log("%cThanks for opening DevTools 😄", "color:#0071E3;");
+
+            /* ==========================================
+        FINAL INITIALIZATION
+========================================== */
+
+            document.addEventListener("DOMContentLoaded", () => {
+                document.body.classList.remove("loading");
+
+                revealOnScroll();
+
+                console.log("Portfolio initialized successfully.");
+            });
+            /* ==========================================
+        CERTIFICATE POPUP
+========================================== */
+
+const certificateImages =
+document.querySelectorAll(".certificate-image");
+
+const certificateModal =
+document.querySelector(".certificate-modal");
+
+const modalImage =
+document.querySelector(".modal-image");
+
+certificateImages.forEach(image=>{
+
+    image.addEventListener("click",()=>{
+
+        modalImage.src=image.src;
+
+        certificateModal.classList.add("show");
+
+    });
+
+});
+
+certificateModal.addEventListener("click",()=>{
+
+    certificateModal.classList.remove("show");
+
+});
+
+document.addEventListener("keydown",(event)=>{
+
+    if(event.key==="Escape"){
+
+        certificateModal.classList.remove("show");
+
+    }
+
+});
+        </script>
+        <div class="back-to-top" id="backToTop">↑</div>
+        <div class="back-to-top" id="backToTop">↑</div>
+        <!-- ==========================================
+        CERTIFICATE MODAL
+========================================== -->
+
+<div class="certificate-modal">
+
+    <img
+        class="modal-image"
+        src=""
+        alt="Certificate Preview">
+
+</div>
+    </body>
+</html>
